@@ -1113,7 +1113,8 @@ endif
 
 if HAVE_EVDEV
 modlibexec_LTLIBRARIES += \
-		module-mmkbd-evdev.la
+		module-mmkbd-evdev.la \
+		module-sense-jack-evdev.la
 endif
 
 if HAVE_JACK
@@ -1248,7 +1249,8 @@ SYMDEF_FILES = \
 		modules/module-augment-properties-symdef.h \
 		modules/module-cork-music-on-phone-symdef.h \
 		modules/module-console-kit-symdef.h \
-		modules/module-loopback-symdef.h
+		modules/module-loopback-symdef.h \
+		modules/module-sense-jack-evdev-symdef.h
 
 EXTRA_DIST += $(SYMDEF_FILES)
 BUILT_SOURCES += $(SYMDEF_FILES)
@@ -1497,6 +1499,10 @@ module_mmkbd_evdev_la_SOURCES = modules/module-mmkbd-evdev.c
 module_mmkbd_evdev_la_LDFLAGS = $(MODULE_LDFLAGS)
 module_mmkbd_evdev_la_LIBADD = $(AM_LIBADD) libpulsecore-@PA_MAJORMINORMICRO@.la libpulsecommon-@PA_MAJORMINORMICRO@.la libpulse.la
 module_mmkbd_evdev_la_CFLAGS = $(AM_CFLAGS)
+
+module_sense_jack_evdev_la_SOURCES = modules/module-sense-jack-evdev.c
+module_sense_jack_evdev_la_LDFLAGS = $(MODULE_LDFLAGS)
+module_sense_jack_evdev_la_LIBADD = $(AM_LIBADD) libpulsecore-@PA_MAJORMINORMICRO@.la libpulsecommon-@PA_MAJORMINORMICRO@.la libpulse.la
 
 # Windows waveout
 
